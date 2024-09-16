@@ -8,7 +8,7 @@
 *.dll
 *.so
 *.dylib
-filestorage
+protos
 .DS_Store
 bin/
 # Test binary, built with `go test -c`
