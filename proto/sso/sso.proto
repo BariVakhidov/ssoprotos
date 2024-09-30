@@ -9,6 +9,7 @@ service Auth {
     rpc Login (LoginRequest) returns (LoginResponse);
     rpc IsAdmin (IsAdminRequest) returns (IsAdminResponse);
     rpc CreateApp (CreateAppRequest) returns (CreateAppResponse);
+    rpc App (AppRequest) returns (AppResponse);
 }
 
 message RegisterRequest {
@@ -45,4 +46,13 @@ message CreateAppRequest {
 
 message CreateAppResponse {
     string app_id = 1; //ID of the created app
+}
+
+message AppRequest {
+    string name = 1; //Name of the app to find
+}
+
+message AppResponse {
+    string app_id = 1; //ID of the app
+    string name = 2; //Name of the app
 }
