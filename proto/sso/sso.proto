@@ -8,6 +8,7 @@ service Auth {
     rpc Register (RegisterRequest) returns (RegisterResponse);
     rpc Login (LoginRequest) returns (LoginResponse);
     rpc IsAdmin (IsAdminRequest) returns (IsAdminResponse);
+    rpc CreateApp (CreateAppRequest) returns (CreateAppResponse);
 }
 
 message RegisterRequest {
@@ -16,13 +17,13 @@ message RegisterRequest {
 }
 
 message RegisterResponse {
-    int64 user_id = 1; //User ID of the registererd user
+    string user_id = 1; //User ID of the registererd user
 }
 
 message LoginRequest {
     string email = 1; //Email of the user to register
     string password = 2; //Password of the user to register
-    int32 app_id = 3; //ID of the app to login to
+    string app_id = 3; //ID of the app to login to
 }
 
 message LoginResponse {
@@ -30,9 +31,18 @@ message LoginResponse {
 }
 
 message IsAdminRequest {
-    int64 user_id = 1; //User ID to validate
+    string user_id = 1; //User ID to validate
 }
 
 message IsAdminResponse {
     bool is_admin = 1; //Indicates whether the user is an admin
+}
+
+message CreateAppRequest {
+    string name = 1; //Name of the app to create
+    string secret = 2; //Secret of the app to create
+}
+
+message CreateAppResponse {
+    string app_id = 1; //ID of the created app
 }
